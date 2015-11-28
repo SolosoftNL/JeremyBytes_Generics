@@ -1,0 +1,62 @@
+﻿<Window x:Class="Generics.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Generics Sample" Height="510" Width="740">
+    <Border x:Name="LayoutRoot" Padding="5"
+            BorderBrush="{StaticResource ApplicationForeground}" BorderThickness="2" 
+            Background="{StaticResource ApplicationBackground}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Non-Generic List Button -->
+            <Button x:Name="NonGenericButton" Grid.Column="0" Grid.Row="0" Margin="5"
+                            Content="Non-Generic List"
+                            Click="NonGenericButton_Click"
+                            Style="{StaticResource GoButtonStyle}"/>
+
+            <!-- Generic List Button -->
+            <Button x:Name="GenericButton" Grid.Column="0" Grid.Row="1" Margin="5"
+                            Content="Generic List"
+                            Click="GenericButton_Click"
+                            Style="{StaticResource GoButtonStyle}"/>
+
+            <!-- Repository Button -->
+            <Button x:Name="RepositoryButton" Grid.Column="0" Grid.Row="2" Margin="5"
+                            Content="Repository"
+                            Click="RepositoryButton_Click"
+                            Style="{StaticResource GoButtonStyle}"/>
+
+            <!-- Clear Button -->
+            <Button x:Name="ClearButton"
+                            Grid.Column="0" Grid.Row="4"
+                            FontSize="16" Padding="7,3" Margin="5"
+                            Content="Clear Data"
+                            Style="{StaticResource ClearButtonStyle}"
+                            Click="ClearButton_Click"/>
+
+            <!-- List Box -->
+            <ListBox x:Name="PersonListBox"
+                     Grid.Column="1" Grid.Row="0" Grid.RowSpan="5"
+                     Margin="5"
+                     BorderBrush="DarkSlateGray" BorderThickness="1"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     ItemTemplate="{StaticResource PersonListTemplate}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </Grid>
+    </Border>
+</Window>
